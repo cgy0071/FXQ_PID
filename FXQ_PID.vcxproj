@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{53CAF22F-79B6-4F7D-BBA1-F5B13DA19B64}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\飞行器\手动_jdp_pid稳定版\手动_jdp\User\Driver\Src;D:\飞行器\手动_jdp_pid稳定版\手动_jdp\User\Controler\Src;D:\飞行器\手动_jdp_pid稳定版\手动_jdp\User;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="手动_jdp\myfile.c" />
+    <ClCompile Include="手动_jdp\my_task.c" />
+    <ClCompile Include="手动_jdp\rte\device\msp432p401r\system_msp432p401r.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\adc14.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\aes256.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\comp_e.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\cpu.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\crc32.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\cs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\dma.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\flash.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\flash_a.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\fpu.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\gpio.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\i2c.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\interrupt.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\lcd_f.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\mpu.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\pcm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\pmap.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\pss.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\ref_a.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\reset.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\rtc_c.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\spi.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\sysctl.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\sysctl_a.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\systick.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\timer32.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\timer_a.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\uart.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\wdt_a.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\rom\msp432p401_driverlib_rom_image.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\rom\msp432p4111_driverlib.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\ccs\startup_msp432p4011_ccs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\ccs\startup_msp432p401m_ccs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\ccs\startup_msp432p401r_ccs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\ccs\startup_msp432p401v_ccs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\ccs\startup_msp432p401y_ccs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\ccs\startup_msp432p4111_ccs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\ccs\startup_msp432p411v_ccs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\ccs\startup_msp432p411y_ccs.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\gcc\startup_msp432p4011_gcc.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\gcc\startup_msp432p401m_gcc.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\gcc\startup_msp432p401r_gcc.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\gcc\startup_msp432p401v_gcc.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\gcc\startup_msp432p401y_gcc.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\gcc\startup_msp432p4111_gcc.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\gcc\startup_msp432p411v_gcc.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\gcc\startup_msp432p411y_gcc.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\iar\startup_msp432p4011_ewarm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\iar\startup_msp432p401m_ewarm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\iar\startup_msp432p401r_ewarm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\iar\startup_msp432p401v_ewarm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\iar\startup_msp432p401y_ewarm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\iar\startup_msp432p4111_ewarm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\iar\startup_msp432p411v_ewarm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\iar\startup_msp432p411y_ewarm.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\system_msp432p4011.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\system_msp432p401m.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\system_msp432p401r.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\system_msp432p401v.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\system_msp432p401y.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\system_msp432p4111.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\system_msp432p411v.c" />
+    <ClCompile Include="手动_jdp\source\ti\devices\msp432p4xx\startup_system_files\system_msp432p411y.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\ADRC.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\CalibrationRoutines.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\Compass.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\control_althold.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\control_land.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\control_poshold.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\Developer_Mode.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\Double.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\Earth_Declination.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\FastMath.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\madgwick.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\Myfile.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\NamelessCorun_OpticalFlow.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\NamelessCotrun_SDK.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\NCLink.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\OpticalFlow_Control.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\Romote.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\Sensor.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\Temperature_Ctrl.c" />
+    <ClCompile Include="手动_jdp\user\controler\src\WP_Ctrl.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Bling.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Calibration.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Filter.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\glcdfont.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\GPS.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\GY53L1X.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\IST8310.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Key.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\mpu6050.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\myiic.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\OLED.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\OpticalFlow_LC306.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\PID.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\PPM.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\QMC5883.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\RC.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Ringbuf.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Schedule.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\SINS.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\softiic.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Soft_I2C.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\SPL06.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\ssd1306.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\stflash.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\SYSTEM.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\tfmini.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Time.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Time_Cnt.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\tofsensor.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\Usart.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\US_100.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\WP_ADC.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\wp_flash.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\WP_Math.c" />
+    <ClCompile Include="手动_jdp\user\driver\src\WP_PWM.c" />
+    <ClCompile Include="手动_jdp\user\main.c" />
+    <ClCompile Include="手动_jdp\user\WP_Math.c" />
+    <ClCompile Include="手动_jdp\US_200.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="手动_jdp\rte\RTE_Components.h" />
+    <ClInclude Include="手动_jdp\rte\_gankerpilot_pro\RTE_Components.h" />
+    <ClInclude Include="手动_jdp\rte\_target_1\RTE_Components.h" />
+    <ClInclude Include="手动_jdp\rte\_______pro\RTE_Components.h" />
+    <ClInclude Include="手动_jdp\rte\_______\RTE_Components.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\DeviceFamily.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\adc14.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\aes256.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\comp_e.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\cpu.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\crc32.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\cs.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\debug.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\dma.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\driverlib.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\eusci.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\flash.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\flash_a.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\fpu.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\gpio.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\i2c.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\interrupt.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\lcd_f.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\mpu.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\pcm.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\pmap.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\pss.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\ref_a.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\reset.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\rom.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\rom_map.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\rtc_c.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\spi.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\sysctl.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\sysctl_a.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\systick.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\timer32.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\timer_a.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\uart.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\driverlib\wdt_a.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p4011.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p401m.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p401m_classic.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p401r.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p401r_classic.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p401v.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p401y.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p4111.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p411v.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p411y.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp432p4xx.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\msp_compatibility.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\system_msp432p4011.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\system_msp432p401m.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\system_msp432p401r.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\system_msp432p401v.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\system_msp432p401y.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\system_msp432p4111.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\system_msp432p411v.h" />
+    <ClInclude Include="手动_jdp\source\ti\devices\msp432p4xx\inc\system_msp432p411y.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\ADRC.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\CalibrationRoutines.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\Compass.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\control_althold.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\control_config.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\control_land.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\control_poshold.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\Developer_Mode.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\Double.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\Earth_Declination.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\FastMath.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\madgwick.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\Myfile.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\NamelessCorun_OpticalFlow.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\NamelessCotrun_SDK.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\NCLink.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\OpticalFlow_Control.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\Remote.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\Sensor.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\Temperature_Ctrl.h" />
+    <ClInclude Include="手动_jdp\user\controler\src\WP_Ctrl.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\binary.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Bling.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Calibration.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Filter.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\GPS.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\GY53L1X.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\IST8310.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Key.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\License.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\mpu6050.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\myiic.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\OLED.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\oledfont.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\OpticalFlow_LC306.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\PID.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\PPM.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\QMC5883.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\RC.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Ringbuf.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Schedule.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\SINS.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\softiic.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Soft_I2C.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\SPL06.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\ssd1306.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\stflash.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\SYSTEM.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\tfmini.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Time.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Time_Cnt.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\tofsensor.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\Usart.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\US_100.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\US_200.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\WP_ADC.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\WP_DataType.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\wp_flash.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\WP_Math.h" />
+    <ClInclude Include="手动_jdp\user\driver\src\WP_PWM.h" />
+    <ClInclude Include="手动_jdp\user\Headfile.h" />
+    <ClInclude Include="手动_jdp\user\WP_Math.h" />
+    <ClInclude Include="手动_jdp\US_200.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="手动_jdp\objects\gankerpilot.build_log.htm" />
+    <None Include="手动_jdp\objects\gankerpilot.htm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,15 @@
+.\objects\ref_a.o: source\ti\devices\msp432p4xx\driverlib\ref_a.c
+.\objects\ref_a.o: .\source\ti/devices/msp432p4xx/driverlib/ref_a.h
+.\objects\ref_a.o: .\source\ti/devices/msp432p4xx/inc/msp.h
+.\objects\ref_a.o: .\source\ti/devices/msp432p4xx/inc/msp432p401r.h
+.\objects\ref_a.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ref_a.o: .\source\ti/devices/msp432p4xx/inc/msp_compatibility.h
+.\objects\ref_a.o: .\source\ti/devices/msp432p4xx/inc/msp432p401r_classic.h
+.\objects\ref_a.o: F:\keil\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\objects\ref_a.o: F:\keil\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\ref_a.o: F:\keil\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\ref_a.o: F:\keil\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\ref_a.o: F:\keil\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\objects\ref_a.o: .\source\ti/devices/msp432p4xx/inc/system_msp432p401r.h
+.\objects\ref_a.o: F:\keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\ref_a.o: .\source\ti/devices/msp432p4xx/driverlib/debug.h
