@@ -350,7 +350,7 @@ void Total_Control(void)
 	// 高度自控2，非高度1
 	Controler_High_Mode        =  2;//**********//
 	// SDK 1， 非SDK 2
-	Controler_SDK1_Mode        =  2;
+	Controler_SDK1_Mode        =  1;
   
   
 	// ！！！！旋钮！！！！

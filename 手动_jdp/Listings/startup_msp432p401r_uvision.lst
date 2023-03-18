@@ -561,11 +561,11 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\startup_msp432p401r_uvision.d -o.\objects\startup_msp
-432p401r_uvision.o -IF:\各项目\fly_machine\个版本例程\手动_jdp\RTE -IF:\keil\AR
-M\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -IF:\keil\ARM\PACK\TexasInstruments\MSP432
-P4xx_DFP\3.2.6\Device\Include --predefine="__UVISION_VERSION SETA 518" --predef
-ine="_RTE_ SETA 1" --predefine="__MSP432P401R__ SETA 1" --list=.\listings\start
-up_msp432p401r_uvision.lst RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
+432p401r_uvision.o -ID:\飞行器\手动_jdp_pid稳定版\手动_jdp\RTE -ID:\keil\ARM\PA
+CK\ARM\CMSIS\4.3.0\CMSIS\Include -ID:\keil\ARM\PACK\TexasInstruments\MSP432P4xx
+_DFP\3.2.6\Device\Include --predefine="__UVISION_VERSION SETA 515" --predefine=
+"_RTE_ SETA 1" --predefine="__MSP432P401R__ SETA 1" --list=.\listings\startup_m
+sp432p401r_uvision.lst RTE\Device\MSP432P401R\startup_msp432p401r_uvision.s
 
 
 

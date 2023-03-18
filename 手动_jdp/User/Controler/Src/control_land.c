@@ -78,9 +78,9 @@ bool land_althold(float taret_climb_rate,float target_climb_alt)
   {
     Total_Controller.High_Position_Control.Expect=target_climb_alt;//更新高度期望
   }
-  if(TRPY[0]>=Deadzone_Min
-     &&TRPY[0]<=Deadzone_Max)
-  {
+//  if(TRPY[0]>=Deadzone_Min
+//     &&TRPY[0]<=Deadzone_Max)
+//  {
     //高度位置环输出给定速度期望
 		Total_Controller.High_Position_Control.FeedBack=NamelessQuad.Position[_YAW];//反馈
 		PID_Control(&Total_Controller.High_Position_Control);//海拔高度位置控制器
@@ -95,25 +95,25 @@ bool land_althold(float taret_climb_rate,float target_climb_alt)
 		Total_Controller.High_Speed_Control.Expect=Yaw_Vel_Target;
     handmove_flag=FALSE;
     move_flag=0;
-  }
-  else if(TRPY[0]>Deadzone_Max)//给定上升速度期望
-  {
-    //油门杆上推、给定速度期望
-    step_mapping=(float)(TRPY[0]-Deadzone_Max)/(Thr_Top-Deadzone_Max);//范围0~1
-    scale_mapping=constrain_float(step_mapping*step_mapping,0,1);
-    Total_Controller.High_Speed_Control.Expect=Max_Upvel*scale_mapping;//最大上升速度50cm/s
-    handmove_flag=TRUE;
-    move_flag=1;
-  }
-  else if(TRPY[0]<Deadzone_Min)//给定下降速度期望
-  {
-    //油门杆下推、给定速度期望
-    step_mapping=(float)(TRPY[0]-Deadzone_Min)/(Deadzone_Min-Thr_Buttom);//范围0~-1
-    scale_mapping=constrain_float(step_mapping*step_mapping,0,1);
-    Total_Controller.High_Speed_Control.Expect=-Max_Downvel*scale_mapping;//最大下降速度40cm/s
-    handmove_flag=TRUE;
-    move_flag=2;
-  }
+//  }
+//  else if(TRPY[0]>Deadzone_Max)//给定上升速度期望
+//  {
+//    //油门杆上推、给定速度期望
+//    step_mapping=(float)(TRPY[0]-Deadzone_Max)/(Thr_Top-Deadzone_Max);//范围0~1
+//    scale_mapping=constrain_float(step_mapping*step_mapping,0,1);
+//    Total_Controller.High_Speed_Control.Expect=Max_Upvel*scale_mapping;//最大上升速度50cm/s
+//    handmove_flag=TRUE;
+//    move_flag=1;
+//  }
+//  else if(TRPY[0]<Deadzone_Min)//给定下降速度期望
+//  {
+//    //油门杆下推、给定速度期望
+//    step_mapping=(float)(TRPY[0]-Deadzone_Min)/(Deadzone_Min-Thr_Buttom);//范围0~-1
+//    scale_mapping=constrain_float(step_mapping*step_mapping,0,1);
+//    Total_Controller.High_Speed_Control.Expect=-Max_Downvel*scale_mapping;//最大下降速度40cm/s
+//    handmove_flag=TRUE;
+//    move_flag=2;
+//  }
   /*高度控制器第2步*/
   /********
           *
@@ -184,8 +184,6 @@ bool land_althold(float taret_climb_rate,float target_climb_alt)
   /*****************************************高度控制器结束，给定油门控制量***********************************************************/
   return handmove_flag;
 }
-
-
 
 
 

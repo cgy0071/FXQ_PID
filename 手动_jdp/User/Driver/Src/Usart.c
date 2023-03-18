@@ -236,10 +236,11 @@ void Vcan_Send(void)//山外地面站发送
 	DataBuf[1]=Ground_Distance;//前后pitch
 	DataBuf[2]=vl53l1x_in1.distance;//Ground_Distance; 
   DataBuf[3]=chioce;//observation_div;//NamelessQuad.Acceleration[_YAW];;//惯导加速度
-  DataBuf[4]=Total_Controller.Optical_Speed_Control.Kp*100;//Observation_Altitude;//气压计高度
-  DataBuf[5]=Total_Controller.Optical_Speed_Control.Ki*100;//Opv_Top_View_Target.sdk_target.y;//observation_acc;
-	DataBuf[6]=Total_Controller.Optical_Speed_Control.Kd*100;//PPM_Databuf[6];//tfdata.div;
-  DataBuf[7]=Total_Controller.Pitch_Angle_Control.Kp*100;//tfdata.distance;  
+  DataBuf[4] = OpticalFlow_Pos_Ctrl_Expect.x;//Total_Controller.Optical_Speed_Control.Kp*100;//Observation_Altitude;//气压计高度
+  DataBuf[5] = OpticalFlow_Pos_Ctrl_Expect.y;//Total_Controller.Optical_Speed_Control.Ki*100;//Opv_Top_View_Target.sdk_target.y;//observation_acc;
+  DataBuf[6] = OpticalFlow_SINS.Position[_ROLL];//Total_Controller.Optical_Speed_Control.Kd*100;//PPM_Databuf[6];//tfdata.div;
+  DataBuf[7] = OpticalFlow_SINS.Position[_PITCH];//Total_Controller.Pitch_Angle_Control.Kp*100;//tfdata.distance;  
+
 
     
 	//Vcan_Buff.End=0x000003fc;

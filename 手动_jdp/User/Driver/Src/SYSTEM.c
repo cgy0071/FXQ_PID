@@ -142,8 +142,9 @@ void HardWave_Init(void)
 	
 	
 	//光流位置环
-	/*
+	
 	Total_Controller.Optical_Position_Control.Kp=0.35;//0.18//光流位置
+	/*
 	Total_Controller.Optical_Position_Control.Ki=0.01;//0.00
 	Total_Controller.Optical_Position_Control.Kd=0.05;//0.00
 	*/

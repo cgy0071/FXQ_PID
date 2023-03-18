@@ -113,13 +113,13 @@ uint8_t move_with_xy_target(float pos_x_target,float pos_y_target,SDK_Status *St
 {
   //static Vector2f pos_base;
   //ncq_control_althold();//高度控制依然进行
-	Flight_Alt_Hold_Control(ALTHOLD_AUTO_POS_CTRL, 100, 0);
+	Flight_Alt_Hold_Control(ALTHOLD_AUTO_POS_CTRL, 150, 0);
   if(Status->Status[number].Start_Flag==0) 
   {
     //pos_base.x=OpticalFlow_SINS.Position[_PITCH];
     //pos_base.y=OpticalFlow_SINS.Position[_ROLL];
-    OpticalFlow_Pos_Ctrl_Expect.x=OpticalFlow_SINS.Position[_PITCH]+pos_x_target;
-    OpticalFlow_Pos_Ctrl_Expect.y=OpticalFlow_SINS.Position[_ROLL]+pos_y_target;
+    OpticalFlow_Pos_Ctrl_Expect.x=pos_x_target;
+    OpticalFlow_Pos_Ctrl_Expect.y=pos_y_target;
     Status->Status[number].Start_Flag=1;
   }
   
@@ -139,12 +139,12 @@ uint8_t move_with_xy_target(float pos_x_target,float pos_y_target,SDK_Status *St
       Status->Status[number].End_flag=1;
       //pos_base.x=0;
       //pos_base.y=0;
-      OpticalFlow_Pos_Ctrl_Expect.x=0;
-      OpticalFlow_Pos_Ctrl_Expect.y=0;
-      Status->Transition_Time[number]=200;
+//      OpticalFlow_Pos_Ctrl_Expect.x=0;
+//      OpticalFlow_Pos_Ctrl_Expect.y=0;
+      Status->Transition_Time[number]=1000;   //5ms*200=1s
       OpticalFlow_Control_Pure(1);//完成之后，进行光流悬停
-      OpticalFlow_Pos_Ctrl_Expect.x=0;
-      OpticalFlow_Pos_Ctrl_Expect.y=0;
+//      OpticalFlow_Pos_Ctrl_Expect.x=0;
+//      OpticalFlow_Pos_Ctrl_Expect.y=0;
       return 1;
     }
     else
@@ -273,7 +273,8 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
      &&Status->Status[number].Execute_Flag==1
        &&Status->Status[number].End_flag==1)
   {   
-     ncq_control_althold();
+     //ncq_control_althold();
+		 auto_altland(target_rate,target_alt);
 	  //Flight_Alt_Hold_Control(ALTHOLD_AUTO_POS_CTRL, z_target, 0);
      return 1;
   }
@@ -293,7 +294,7 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
         {
           //z_base=NamelessQuad.Position[_YAW];
           target_rate=0;
-          target_alt=NamelessQuad.Position[_YAW]+z_target;
+          target_alt=z_target;
           end_flag=2;
 					Status->Status[number].Start_Flag=1;///************//
         }
@@ -308,8 +309,10 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
     
     if(end_flag==1)
     {  
-		//Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, target_alt, target_rate);
-      auto_altland(target_rate,target_alt);
+			Total_Controller.High_Position_Control.Expect=NamelessQuad.Position[_YAW];
+		  Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, 0, -20);
+      //auto_altland(target_rate,target_alt);
+			//land_althold(target_rate,target_alt);
       if(dt.Now_Time>end_time)//结束条件
       { 
         end_flag=0;
@@ -319,7 +322,7 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
         end_time=0;
         Status->Status[number].Execute_Flag=1;
         Status->Status[number].End_flag=1;
-        Status->Transition_Time[number]=200;//200*5=1秒
+        Status->Transition_Time[number]=800;//200*5=1秒
 				
 				OpticalFlow_Control_Pure(1);//完成之后，进行光流悬停
 				OpticalFlow_Pos_Ctrl_Expect.x=0;
@@ -332,9 +335,10 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
     }
     else if(end_flag==2)
     {
+			
 		// 以某一速度向上或向下，直到高度满足要求，便控制在该高度处
-			//Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, 0, z_vel);
-      auto_altland(target_rate,target_alt);    
+      //auto_altland(target_rate,target_alt);   
+			land_althold(target_rate,target_alt);			
       if(ABS(target_alt-NamelessQuad.Position[_YAW])<=5.0f)//结束条件
       {
         end_flag=0;
@@ -344,7 +348,7 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
         end_time=0;
         Status->Status[number].Execute_Flag=1;
         Status->Status[number].End_flag=1;
-        Status->Transition_Time[number]=1000;//1000*5ms
+        Status->Transition_Time[number]=800;//1000*5ms
 				
 				OpticalFlow_Control_Pure(1);//完成之后，进行光流悬停
 				OpticalFlow_Pos_Ctrl_Expect.x=0;
@@ -359,6 +363,7 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
   return 0;
 }
 
+
 //#define NCQ_SDK_DUTY1 move_with_speed_target(10,0,2000 ,&SDK_Duty_Status,1-1)//左
 //#define NCQ_SDK_DUTY2 move_with_speed_target(0,10,2000 ,&SDK_Duty_Status,2-1)//前
 //#define NCQ_SDK_DUTY3 move_with_speed_target(-10,0,2000,&SDK_Duty_Status,3-1)//右
@@ -366,9 +371,9 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
 
 
 #define NCQ_SDK_DUTY_MAX   3
-#define NCQ_SDK_DUTY1 move_with_z_target(100,10,0,&SDK_Duty_Status,1-1)
-#define NCQ_SDK_DUTY2 control_yaw_rotate(90,&SDK_Duty_Status, 2-1)//move_with_speed_target(0, 30, 5000, &SDK_Duty_Status, 2-1)
-#define NCQ_SDK_DUTY3 move_with_z_target(-150,-20,0,&SDK_Duty_Status,3-1)
+#define NCQ_SDK_DUTY1 move_with_z_target(150,50,0,&SDK_Duty_Status,1-1)
+#define NCQ_SDK_DUTY2 move_with_xy_target(0,180,&SDK_Duty_Status, 2-1)//move_with_speed_target(0, 30, 5000, &SDK_Duty_Status, 2-1)
+#define NCQ_SDK_DUTY3 move_with_z_target(0,-5,0,&SDK_Duty_Status,3-1)
 
 #define NCQ_SDK_DUTY4 move_with_speed_target(0, 30, 5000, &SDK_Duty_Status, 4-1)
 #define NCQ_SDK_DUTY5 control_yaw_rotate(90,&SDK_Duty_Status, 5-1)  //move_with_speed_target(0, 30, 5000, &SDK_Duty_Status, 2-1)
@@ -376,12 +381,13 @@ uint8_t move_with_z_target(float z_target,float z_vel,float delta,SDK_Status *St
 #define NCQ_SDK_DUTY7 control_yaw_rotate(90,&SDK_Duty_Status, 7-1)  //move_with_speed_target(0, 30, 5000, &SDK_Duty_Status, 2-1)
 #define NCQ_SDK_DUTY8 move_with_speed_target(0, 30, 5000, &SDK_Duty_Status, 8-1)
 #define NCQ_SDK_DUTY9 control_yaw_rotate(90,&SDK_Duty_Status, 9-1)  //move_with_speed_target(0, 30, 5000, &SDK_Duty_Status, 2-1)
-#define NCQ_SDK_DUTY10 move_with_z_target(-150,-20,0,&SDK_Duty_Status,10-1)
+#define NCQ_SDK_DUTY10 move_with_z_target(-20,-20,0,&SDK_Duty_Status,10-1)
 
 
 SDK_Status SDK_Duty_Status;
 uint16_t SDK_Duty_Cnt=0;
 uint16_t SDK_Transition_Time=0;
+
 void NCQ_SDK_Run(void)
 {
   if(SDK_Duty_Status.Transition_Time[SDK_Duty_Cnt]>=1) 
@@ -408,10 +414,12 @@ void NCQ_SDK_Run(void)
   else
   {
 	// 让飞机寻找色块
-	  SDK1_Mode_Setup = 1;
-		Total_Controller.High_Position_Control.Expect=100;
-    ncq_control_althold();//高度控制
+	  //SDK1_Mode_Setup = 1;
+		//Total_Controller.High_Position_Control.Expect=150;
+    //ncq_control_althold();//高度控制
     OpticalFlow_Control_Pure(0);//位置控制
+		Total_Controller.High_Position_Control.Expect=NamelessQuad.Position[_YAW];
+		 Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, 0, -20);
   }
 }
 

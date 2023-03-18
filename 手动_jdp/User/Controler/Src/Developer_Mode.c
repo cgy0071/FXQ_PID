@@ -60,7 +60,7 @@ void Auto_Flight_Ctrl(uint8_t mode)
     case 0://用户事先指定的SDK开发者模式
 		{
 			NCQ_SDK_Run();//水内含平控制+高度控制
-			Controller.yaw_outer_control_output  =RC_Data.rc_rpyt[RC_YAW];
+			//Controller.yaw_outer_control_output  =RC_Data.rc_rpyt[RC_YAW];
 		}
 		break;		
     case 1://俯视OPENMV视觉追踪色块
